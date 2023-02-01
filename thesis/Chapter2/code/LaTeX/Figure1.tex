@@ -1,0 +1,28 @@
+%--------------------------------%
+\afterpage{
+\begin{figure}[p]
+    \centering
+    \begin{subfigure}[b]{0.33\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]
+        {example-image-a} % File path to graphics
+        \subcaption{\label{fig:a}}
+    \end{subfigure}% `%' indicates no space between figures
+    \begin{subfigure}[b]{0.33\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]
+        {example-image-b} % File path to graphics
+        \subcaption{\label{fig:b}}
+    \end{subfigure}% `%' indicates no space between figures
+    \begin{subfigure}[b]{0.33\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]
+        {example-image-c} % File path to graphics
+        \subcaption{\label{fig:c}}
+    \end{subfigure}% `%' indicates no space between figures
+    \caption{Example figure with three side-by-side images with no space
+    between each figure.  \subref{fig:a} \ldots \subref{fig:b} \ldots
+    \subref{fig:c} \ldots \lipsum[75]}
+    \label{fig:Figure_1}
+\end{figure}
+\clearpage}

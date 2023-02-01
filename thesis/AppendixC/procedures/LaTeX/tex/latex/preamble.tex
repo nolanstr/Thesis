@@ -1,0 +1,404 @@
+    \usepackage{graphicx} % Used to insert images
+	\usepackage{float} % Allows figures to be locked
+    \usepackage[table,xcdraw]{xcolor}
+    \usepackage{xfrac}
+    \usepackage{rotating}
+    \usepackage{adjustbox} % Used to constrain images to a maximum size
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{enumitem} % Needed for lettered enumeration
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics
+                         % to support a larger range
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage{amsthm}
+	\usepackage{pdfpages} % importing of PDFs
+    \usepackage{ifthen}
+    \usepackage[nomessages]{fp}
+	
+	\usepackage[english]{babel}
+	\usepackage{lipsum} % Random text
+	\usepackage{array}
+	\usepackage{multirow}
+	\usepackage{mathtools}
+
+    \usepackage{tikz} % Needed to box output/input
+    \usepackage{scrextend} % Used to indent output
+    \usepackage{needspace} % Make prompts follow contents
+    \usepackage{framed} % Used to draw output that spans multiple pages
+
+    \usepackage{fancyhdr}
+    \usepackage{lastpage}
+    \renewcommand{\headrulewidth}{0.4pt}
+
+    \newcommand{\expnumber}[2]{{#1}\mathrm{e}{#2}}
+
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+
+\usepackage[colorlinks=true,
+			breaklinks=true,  % so long urls are correctly broken across lines
+			urlcolor=blue,
+			linkcolor=darkorange,
+			citecolor=darkgreen,
+			anchorcolor=blue]{hyperref}
+			
+    \usepackage{fontspec}
+    \usepackage{xunicode}
+    \usepackage{titlesec}
+    \defaultfontfeatures{Ligatures=TeX}
+    \setmainfont{Cambria}
+    \newfontfamily\secfont{Calibri}
+    \newcommand{\chapstyle}{\bfseries\Huge\secfont\color{red}}
+    \newcommand{\secstyle}{\bfseries\Large\secfont\color{red}}
+    \newcommand{\subsecstyle}{\bfseries\large\secfont\color{red}}
+    \newcommand{\subsubsecstyle}{\itshape\large\secfont\color{red}}
+    \titleformat{\chapter}{\chapstyle}{}{.1ex}{\hspace{-.4pt}\Huge
+      Chapter \thechapter\newline}[\normalfont]
+    \titleformat{\section}{\secstyle}{}{.1ex}{\hspace{-.4pt}\Large\S\thesection\hspace{0.6em}}[\normalfont]
+    \titleformat{\subsection}{\subsecstyle}{}{.1ex}{\hspace{-.4pt}\large\S\thesubsection\hspace{0.6em}}[\normalfont]
+    \titleformat{\subsubsection}{\subsubsecstyle}{}{.1ex}{\hspace{-.4pt}\itshape\large\S\thesubsubsection\hspace{0.6em}}[\normalfont]
+
+    \titleformat{name=\section,numberless}{\secstyle}{}{.1ex}{\hspace{-8pt}\Large\hspace{0.6em}}[\normalfont]
+    \titleformat{name=\subsection,numberless}{\subsecstyle}{}{.1ex}{\hspace{-8pt}\large\hspace{0.6em}}[\normalfont]
+    \titleformat{name=\subsubsection,numberless}{\subsubsecstyle}{}{.1ex}{\hspace{-8pt}\itshape\large\hspace{0.6em}}[\normalfont]
+
+
+\newtheorem{remark}{Remark}
+%\newtheorem*{hint}{{\color{red}Hint}}
+\newenvironment*{hint}%
+{ \noindent\ignorespaces{\color{red}\textbf{Hint:}} }%
+  { \par\noindent\ignorespacesafterend }
+
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage[colorlinks=true,
+                breaklinks=true,  % so long urls are correctly broken across lines
+                urlcolor=blue,
+                linkcolor=darkorange,
+                citecolor=darkgreen,
+                anchorcolor=blue]{hyperref}
+    % Slightly bigger margins than the latex defaults
+
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+    %\setlength{\parindent}{0pt}
+    \usepackage{parskip}
+
+\usepackage{boxedminipage}
+
+\usepackage{calc}
+\newlength{\remdatea}
+\newlength{\remdateb}
+\newlength{\remnamea}
+\newlength{\remnameb}
+\newcommand{\ifem}{\texttt{IFEM}}
+
+
+
+% --- mint code highlighting
+\usepackage[newfloat]{minted}
+\usepackage{color}
+\SetupFloatingEnvironment{listing}{name=Listing}
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+\usepackage{etoolbox}
+\definecolor{bg}{rgb}{.95,.95,.95}
+\BeforeBeginEnvironment{minted}{\medskip\begin{mdframed}[backgroundcolor=bg]}
+\AfterEndEnvironment{minted}{\end{mdframed}\par\medskip}
+\newcommand{\mintit}[1]{\mintinline{python}{#1}}
+\newcommand{\mintitc}[1]{\mintinline{c}{#1}}
+\newcommand{\mintitm}[1]{\mintinline{matlab}{#1}}
+
+\newmintedfile[pycode]{python}{
+bgcolor=bg,
+fontfamily=tt,
+fontsize=\scriptsize,
+linenos=true,
+numberblanklines=true,
+numbersep=5pt,
+gobble=0,
+frame=leftline,
+framerule=0.4pt,
+framesep=2mm,
+funcnamehighlighting=true,
+tabsize=4,
+obeytabs=false,
+mathescape=false
+samepage=false, %with this setting you can force the list to appear on the same page
+showspaces=false,
+showtabs =false,
+texcl=false,
+}
+
+\newmintedfile[mcode]{matlab}{
+bgcolor=bg,
+fontfamily=tt,
+fontsize=\scriptsize,
+linenos=true,
+numberblanklines=true,
+numbersep=5pt,
+gobble=0,
+frame=leftline,
+framerule=0.4pt,
+framesep=2mm,
+funcnamehighlighting=true,
+tabsize=4,
+obeytabs=false,
+mathescape=false
+samepage=false, %with this setting you can force the list to appear on the same page
+showspaces=false,
+showtabs =false,
+texcl=false,
+}
+
+
+%%% ====================================================================
+%%% Custom code highlighting using Minted and tikz
+%%% ====================================================================
+
+\usepackage{tikz}
+
+%%% ====================================================================
+%%% Specific colors used for code highlighting
+%%% ====================================================================
+
+% Matlab specific colors
+\definecolor{matlabcodeBG}{rgb}{0.99,0.99,1} % light blue
+\definecolor{matlabcodeCOL}{RGB}{34,43,53}
+\definecolor{matlabcodeCOLNUM}{RGB}{128,128,128}
+
+% Python specific colors
+\definecolor{pythoncodeBG}{rgb}{0.99,1,0.99} % light green
+\definecolor{pythoncodeTCBborder}{RGB}{94,94,94} % dark gray
+\definecolor{pythoncodeCOL}{RGB}{226,226,226} % light gray
+\definecolor{pythoncodeCOLNUM}{RGB}{0,0,0} % black
+
+% Python spyder dark color profile
+%\definecolor{pythoncodeBG}{RGB}{38,50,56} % dark
+%\definecolor{pythoncodeTCBborder}{RGB}{226,226,226} % light gray
+%\definecolor{pythoncodeCOL}{RGB}{34,43,53} % dark
+%\definecolor{pythoncodeCOLNUM}{RGB}{128,128,128} % gray
+
+% commands for color
+\newcommand{\bgcol}{\color{pythoncodeBG}}
+\newcommand{\bgcolCol}{\color{pythoncodeCOL}}
+\newcommand{\bgcolNum}{\color{pythoncodeCOLNUM}}
+
+% TCB colorbox to put higlighted minted code from pygments inside
+\usepackage{tcolorbox}
+\tcbuselibrary{minted,skins,breakable}
+
+\usepackage{minted}
+
+% Different languages
+\newcommand{\python}{python}
+\newcommand{\matlab}{matlab}
+\newcommand{\octave}{octave}
+
+% Different styles
+\newcommand{\codeStyle}{default}
+%\newcommand{\codeStyle}{material}
+%\newcommand{\codeStyle}{perldoc}
+
+\usemintedstyle[python]{\codeStyle} % Specific color scheme
+\usemintedstyle[matlab]{\codeStyle} % Specific color scheme
+\usemintedstyle[octave]{\codeStyle} % Specific color scheme
+
+%%% ====================================================================
+%%% Custom code highlighting using Minted
+%%% ====================================================================
+
+\newcommand{\pyInputfns}{\pythoninputfns}
+%\newcommand{\codeStyle}{material}
+
+% Python normalsize
+\newtcbinputlisting{\pythoninput}[2][]{%
+	listing file={#2},
+	minted language=python,
+	minted style=default,
+	minted options={
+		fontsize=\normal pythoncodeCOLNUM,
+		linenos,
+		numbersep=1mm,
+		breaklines=true,
+	},% <-- put other minted options inside the brackets
+	overlay={%
+		\begin{tcbclipinterior}
+			\fill[gray!25] (frame.south west) rectangle ([xshift=5mm]frame.north west);
+		\end{tcbclipinterior}
+	},
+	colback=pythoncodeBG,
+	colframe=black!70,
+	before skip=5pt plus 2pt,
+	breakable,
+	enhanced,% <-- put other tcolorbox options here
+	listing only,#1
+}
+% Python footnotesize
+\newtcbinputlisting{\pythoninputfns}[2][]{%
+	listing file={#2},
+	minted language=\python,
+	minted style=\codeStyle,
+	minted options={
+		fontsize=\footnotesize\bgcolNum,
+		linenos,
+		numbersep=1mm,
+		breaklines=true,
+	},% <-- put other minted options inside the brackets
+	overlay={%
+		\begin{tcbclipinterior}
+			\fill[pythoncodeCOL] (frame.south west) rectangle ([xshift=5mm]frame.north west); % gray!25
+		\end{tcbclipinterior}
+	},
+	colback=pythoncodeBG,
+	colframe=pythoncodeTCBborder, %colframe=black!70,
+	before skip=5pt plus 2pt,
+	breakable,
+	enhanced,% <-- put other tcolorbox options here
+	listing only,#1
+}
+% Python tiny
+\newtcbinputlisting{\pythoninputtiny}[2][]{%
+	listing file={#2},
+	minted language=python,
+	minted style=default,
+	minted options={
+		fontsize=\tiny,
+		linenos,
+		numbersep=1mm,
+		breaklines=true,
+	},% <-- put other minted options inside the brackets
+	overlay={%
+		\begin{tcbclipinterior}
+			\fill[gray!25] (frame.south west) rectangle ([xshift=5mm]frame.north west);
+		\end{tcbclipinterior}
+	},
+	colback=pythoncodeBG,
+	colframe=black!70,
+	before skip=5pt plus 2pt,
+	breakable,
+	enhanced,% <-- put other tcolorbox options here
+	listing only,#1
+}
+% Matlab normal
+\newtcbinputlisting{\matlabinput}[2][]{%
+	listing file={#2},
+	minted language=matlab,
+	minted style=default,
+	minted options={
+		fontsize=\normal,
+		linenos,
+		numbersep=1mm,
+		breaklines=true,
+	},% <-- put other minted options inside the brackets
+	overlay={%
+		\begin{tcbclipinterior}
+			\fill[gray!25] (frame.south west) rectangle ([xshift=5mm]frame.north west);
+		\end{tcbclipinterior}
+	},
+	colback=matlabcodeBG,
+	colframe=black!70,
+	before skip=5pt plus 2pt,
+	breakable,
+	enhanced,% <-- put other tcolorbox options here
+	listing only,#1
+}
+% Matlab footnotesize
+\newtcbinputlisting{\matlabinputfns}[2][]{%
+	listing file={#2},
+	minted language=matlab,
+	minted style=default,
+	minted options={
+		fontsize=\footnotesize,
+		linenos,
+		numbersep=1mm,
+		breaklines=true,
+	},% <-- put other minted options inside the brackets
+	overlay={%
+		\begin{tcbclipinterior}
+			\fill[gray!25] (frame.south west) rectangle ([xshift=5mm]frame.north west);
+		\end{tcbclipinterior}
+	},
+	colback=matlabcodeBG,
+	colframe=black!70,
+	before skip=5pt plus 2pt,
+	breakable,
+	enhanced,% <-- put other tcolorbox options here
+	listing only,#1
+}
+% Matlab tiny
+\newtcbinputlisting{\matlabinputtiny}[2][]{%
+	listing file={#2},
+	minted language=matlab,
+	minted style=default,
+	minted options={
+		fontsize=\tiny,
+		linenos,
+		numbersep=1mm,
+		breaklines=true,
+	},% <-- put other minted options inside the brackets
+	overlay={%
+		\begin{tcbclipinterior}
+			\fill[gray!25] (frame.south west) rectangle ([xshift=5mm]frame.north west);
+		\end{tcbclipinterior}
+	},
+	colback=matlabcodeBG,
+	colframe=black!70,
+	before skip=5pt plus 2pt,
+	breakable,
+	enhanced,% <-- put other tcolorbox options here
+	listing only,#1
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%  Function used to generate vectors and tensors %%%%%%%%%
+\usepackage{stackengine}
+\stackMath
+\newcommand\tensor[2][1]{%
+\def\useanchorwidth{T}%
+	\ifnum#1>1%
+		\stackunder[0pt]{\tensor[\numexpr#1-1\relax]{#2}}{\scriptscriptstyle \sim}%
+	\else%
+		\stackunder[1pt]{#2}{\scriptscriptstyle \sim}%
+\fi%
+}
+%%%%%%%%%%%%%%%%%%%%%
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

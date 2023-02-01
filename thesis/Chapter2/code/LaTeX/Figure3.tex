@@ -1,0 +1,22 @@
+%--------------------------------%
+\afterpage{
+\begin{figure}[p]
+    \centering
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]
+        {example-image-a}
+        \subcaption{\label{fig:g}}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]
+        {example-image-b}
+        \subcaption{\label{fig:h}}
+    \end{subfigure}%
+    \caption{Two figures side-by-side.  \ldots \subref{fig:g} \ldots
+    \subref{fig:h} \ldots \lipsum[75]} 
+    \label{fig:Figure_3}
+\end{figure}
+\clearpage}
+%--------------------------------%

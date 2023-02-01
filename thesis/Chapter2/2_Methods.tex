@@ -1,0 +1,399 @@
+%%% -*-LaTeX-*-
+\documentclass[../Dissertation]{subfiles}
+
+\doublespacing
+\graphicspath{{Chapter2/media/}{media/}} % Graphics path for images
+
+\begin{document}
+
+\section{Section}\label{s:Section1}
+\vspace{-1ex}
+\subsection{Subsection}\label{ss:Subsection1}
+    \lipsum[1-2] \cref{fig:Figure_1,tab:Table_1} \lipsum[66] 
+    \cite{Feltgen_2014}.
+
+    %--------------------------------%
+    \afterpage{
+    \begin{figure}[p]
+        \centering
+        \begin{subfigure}[b]{0.33\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]
+            {example-image-a} % File path to graphics
+            \subcaption{\label{fig:a}}
+        \end{subfigure}% `%' indicates no space between figures
+        \begin{subfigure}[b]{0.33\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]
+            {example-image-b} % File path to graphics
+            \subcaption{\label{fig:b}}
+        \end{subfigure}% `%' indicates no space between figures
+        \begin{subfigure}[b]{0.33\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]
+            {example-image-c} % File path to graphics
+            \subcaption{\label{fig:c}}
+        \end{subfigure}% `%' indicates no space between figures
+        \caption{Example figure with three side-by-side images with no space
+        between each figure.  \subref{fig:a} \ldots \subref{fig:b} \ldots
+        \subref{fig:c} \ldots \lipsum[75]}
+        \label{fig:Figure_1}
+    \end{figure}
+    \clearpage}
+    %--------------------------------%
+    \afterpage{
+    \begin{table}[p]
+        \centering
+        \caption{Example table 1. \ldots \lipsum[75]}
+        \begin{tabularx}{0.5\textwidth}{XXX}
+            \toprule
+            $\alpha$  & $\beta$  & $\gamma$  \\
+            \midrule
+            0         & 2        & 4         \\
+            1         & 3        & 5         \\
+            \bottomrule
+        \end{tabularx}
+        \label{tab:Table_1}
+    \end{table}
+    \clearpage}
+    %--------------------------------%
+    
+    The \hologo{LaTeX} code used to create \cref{fig:Figure_1} is in
+    \cref{code:Figure_1}.  
+    
+    \codeFromFile{LaTeX}
+        {./Chapter2/code/LaTeX/Figure1.tex}
+        {\ldots \hologo{LaTeX} to display a figure with one three side-by-side images and no space.}
+        {Figure_1}
+        {\footnotesize}
+        {latexcodebg}
+        {default}
+    
+    \lipsum[1-2]
+    
+    The \hologo{LaTeX} code used to create \cref{tab:Table_1} is in
+    \cref{code:Table_1}.  
+    
+    \codeFromFile{LaTeX}
+        {./Chapter2/code/LaTeX/Table1.tex}
+        {\ldots \hologo{LaTeX} to display a table with three columns and three rows.}
+        {Table_1}
+        {\footnotesize}
+        {latexcodebg}
+        {default}
+    
+\subsubsection{Cross Reference Label Definition}\label{sss:labeling}
+    To cross reference anything in \hologo{LaTeX} you need to define a \hl{label}.
+    For example, \emph{Chapters}, \emph{Sections}, \emph{Subsections},
+    \emph{SubSubSections}, \emph{Paragraphs}, \emph{Figures}, and \emph{Tables}
+    can be labeled in the following manner:
+    
+    {\singlespacing
+    \begin{itemize}
+        \setlength\itemsep{0em}
+        \item \textbf{A Chapter:}
+            \begin{center}`\mintinline{LaTeX}{\chapter{Chapter}\label{chp:1}}' \end{center}
+        \item \textbf{A Section:}
+            \begin{center}`\mintinline{LaTeX}{\section{Section}\label{s:chp1_overview}}' \end{center}
+        \item \textbf{A SubSection:}
+            \begin{center}`\mintinline{LaTeX}{\subsection{SubSection}\label{ss:Subsection1}}' \end{center}
+        \item \textbf{A SubSubSection:}
+            \begin{center}`\mintinline{LaTeX}{\subsubsection{SubSubSection}\label{sss:sss1}}' \end{center}
+        \item \textbf{A Paragraph:}
+            \begin{center}`\mintinline{LaTeX}{\paragraph{Paragraph}\label{p:paragraph1}}' \end{center}
+        \item \textbf{Inside a figure environment:}
+            \begin{center}`\mintinline{LaTeX}{\label{fig:figure_1}}'
+            \end{center}
+        \item \textbf{Inside a table environment:}
+            \begin{center}`\mintinline{LaTeX}{\label{tab:table_1}}'
+            \end{center}
+    \end{itemize}}
+
+\subsubsection{Cross Referencing}\label{sss:cross_referencing}
+\paragraph{Document sections}
+    To cross reference \emph{Chapters}, \emph{Sections}, \emph{Subsections},
+    \emph{SubSubSections}, \emph{Paragraphs}, \emph{Figures}, \emph{Tables},
+    \emph{References}, and \emph{Codes} use the following \hologo{LaTeX} commands from the
+    \href{https://ctan.org/pkg/cleveref?lang=en}{\texttt{cleveref}} package:
+    
+    {\singlespacing
+    \begin{itemize}
+        \setlength\itemsep{0em}
+        \item \textbf{A Chapter:}
+            \begin{center}`\mintinline{LaTeX}{\cref{chp:1}}'
+        $\longrightarrow$ \cref{chp:1}. \end{center}
+        \item \textbf{A Section:}
+            \begin{center}`\mintinline{LaTeX}{\cref{s:chp1_overview}}'
+            $\longrightarrow$ \cref{s:chp1_overview}.\end{center}
+        \item \textbf{A SubSection:}
+            \begin{center}`\mintinline{LaTeX}{\cref{ss:Subsection1}}'
+            $\longrightarrow$ \cref{ss:Subsection1}.\end{center}
+        \item \textbf{A SubSubSection:}
+            \begin{center}`\mintinline{LaTeX}{\cref{sss:cross_referencing}}'
+            $\longrightarrow$ \cref{sss:cross_referencing}.\end{center}
+        \item \textbf{A Paragraph:}
+            \begin{center}`\mintinline{LaTeX}{\cref{p:paragraph_1}}'
+            $\longrightarrow$ \cref{p:paragraph_1}.\end{center}
+        \item \textbf{Multiple \emph{Chapters}, \emph{Sections}, \emph{SubSections},
+            \emph{SubSubSections}} \\
+            \begin{center}`\mintinline[breaklines=True]{LaTeX}{\cref{chp:1,s:chp1_overview,ss:Subsection1,sss:cross_referencing}}'
+            $\longrightarrow$
+            \cref{chp:1,s:chp1_overview,ss:Subsection1,sss:cross_referencing}.\end{center}
+            \emph{with no \hl{space} between each item being referenced.}
+    \end{itemize}}
+    
+\paragraph{References/Citations/Bibliography}
+    Use a citation manager to load your references and export a
+    \texttt{bibliography.bib} file.  Include this \texttt{bibliography.bib}
+    file in your main dissertation file using the
+    \mintinline{LaTeX}{\addbibresource{\subfix{Chapter2/bib_files/bibliography.bib}}}
+    before the command:  \mintinline{LaTeX}{\begin{document} ... \end{document}}.  It is
+    recommended to use \href{https://www.mendeley.com/}{Mendeley} for their
+    ease of adding references and exporting \texttt{bibliography.bib} files.
+    \href{https://chrome.google.com/webstore/detail/mendeley-web-importer/dagcmkpagjlhakfdhnbomgmjdpkdklff?hl=en}{Mendeley
+    Web Importer} also has a Google Chrome extension where you can add
+    references via the web browser.
+    
+    {\singlespacing
+    \begin{itemize}
+            \item Single references from a \texttt{bibliography.bib} file
+            \begin{center}`\mintinline{LaTeX}{\autocite{Feltgen_2014}}' $\longrightarrow$ \autocite{Feltgen_2014}
+            \end{center}
+            \item Multiple references (\emph{2}) from a \texttt{bibliography.bib} file
+            \begin{center}`\mintinline{LaTeX}{\autocite{Gandorfer_2001, Feltgen_2014}}' $\longrightarrow$ \autocite{Gandorfer_2001, Feltgen_2014}
+            \end{center}
+            \item Multiple references (\emph{3+}) from a \texttt{bibliography.bib} file
+            \begin{center}`\mintinline{LaTeX}{\autocite{Fivgas_2001, Gandorfer_2001, Feltgen_2014}}' $\longrightarrow$ \autocite{Fivgas_2001, Gandorfer_2001, Feltgen_2014}
+            \end{center}
+    \end{itemize}}
+    
+\paragraph{Figures}
+    
+    {\singlespacing
+    \begin{itemize}
+        \setlength\itemsep{0em}
+        \item A single figure:  \begin{center} `\mintinline{LaTeX}{\cref{fig:Figure_1}}'
+            $\longrightarrow$ \cref{fig:Figure_1}.  \end{center}
+        \item Multiple figures:
+            \begin{center} `\mintinline{LaTeX}{\cref{fig:Figure_1,fig:Figure_2}}'
+            $\longrightarrow$ \cref{fig:Figure_1,fig:Figure_2}  \end{center}
+        \emph{with no \hl{space} between each item being referenced.}
+    \end{itemize}}
+    
+\paragraph{Tables}
+    
+    {\singlespacing
+    \begin{itemize}
+        \setlength\itemsep{0em}
+        \item A single Table:  \begin{center} `\mintinline{LaTeX}{\cref{tab:Table_1}}'
+            $\longrightarrow$ \cref{tab:Table_1}.  \end{center}
+        \item Multiple Tables:
+            \begin{center} `\mintinline{LaTeX}{\cref{tab:Table_1,tab:Table_2}}'
+            $\longrightarrow$ \cref{tab:Table_1,tab:Table_2}  \end{center}
+        \emph{with no \hl{space} between each item being referenced.}
+    \end{itemize}}
+    
+\paragraph{Figures and Tables}
+    
+    {\singlespacing
+    \begin{itemize}
+        \setlength\itemsep{0em}
+        \item A Figure and a Table:
+            \begin{center} `\mintinline{LaTeX}{\cref{fig:Figure_1,tab:Table_1}}'
+            $\longrightarrow$ \cref{fig:Figure_1,tab:Table_1}.   \end{center}
+        \emph{with no \hl{space} between each item being referenced.}
+    \end{itemize}}
+    
+\paragraph{Codes}
+    
+    {\singlespacing
+    \begin{itemize}
+        \setlength\itemsep{0em}
+        \item A single code:  \begin{center} `\mintinline{LaTeX}{\cref{code:Figure_1}}'
+            $\longrightarrow$ \cref{code:Figure_1}.  \end{center}
+        \item Multiple codes:
+            \begin{center} `\mintinline{LaTeX}{\cref{code:Figure_1,code:Figure_2}}'
+            $\longrightarrow$ \cref{code:Figure_1,code:Figure_2}  \end{center}
+        \emph{with no \hl{space} between each item being referenced.}
+    \end{itemize}}
+
+\section{Figure and Table Placement}
+    Due to the strict requirement of figure/table placement, it is recommended
+    to have figure/tables placed immediately after they are referenced on a
+    separate page.  We are using the \hologo{LaTeX} commands from the
+    \href{https://ctan.org/pkg/afterpage?lang=en}{\texttt{afterpage}} package
+    to do this.  Careful placement in the text needs to be considered to ensure
+    that there are not additional pages of text before the figure/table is
+    placed.  In some rare instances the figure/table will need to be coded in a
+    previous paragraph/section to have the display be on the subsequent page
+    after the first mention.  The \hologo{LaTeX} code used to create
+    \cref{fig:Figure_1} is in \cref{code:Figure_1}.  
+    
+    If the figure/tables are to instead be placed in the text at either the top
+    or bottom of the page then the placement option \hl{\texttt{[tbp]}} forces
+    the figure/table to be either placed at the `top', `bottom', or `on a
+    separate page centered vertically'.  The location of the figure/table in
+    the text will have to be shifted such that the figure shows up immediately
+    after the figure/table is referenced in the text.  \hologo{LaTeX} will try and
+    find the best location to minimize white space.  In doing so, sometimes the
+    figure/tables will \emph{float} in a less desirable location.  Hence, why
+    it is suggested to use the method described above using the
+    \href{https://ctan.org/pkg/afterpage?lang=en}{\texttt{afterpage}} package.
+
+\subsection{Table Creation}
+    \hologo{LaTeX} can be a bit tricky when it comes to tables.  Therefore, it is
+    recommended to use the two following methods to easily create your table
+    for publication.  
+    
+    \begin{enumerate}
+        \item \href{https://www.tablesgenerator.com/}{\texttt{tablesgenerator}}
+        \item
+            \href{https://ctan.org/pkg/excel2latex?lang=en}{\texttt{Excel2\hologo{LaTeX}}}
+            package:  Making tables in \hologo{LaTeX} can be tedious, especially if
+            some columns are calculated. This converter allows you to write a
+            table in Excel instead, and export the current selection as
+            \hologo{LaTeX} markup which can be pasted into an existing \hologo{LaTeX}
+            document, or exported to a file and included via the
+            \mintinline{LaTeX}{\input} command.
+    \end{enumerate}
+
+\section{Section}
+    \lipsum[1-2]
+    
+\subsection{Subsection}\label{ss:Subsection2}
+    \lipsum[1-2] \cref{fig:Figure_2} 
+
+    %--------------------------------%
+    \afterpage{
+    \begin{figure}[p]
+        \centering
+        \begin{subfigure}[b]{1.0\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]
+            {example-image-a} % File path to graphics
+            \subcaption{\label{fig:d}}
+        \end{subfigure} \\[1ex]
+        \begin{subfigure}[b]{0.5\textwidth}
+            \centering
+            \includegraphics[width=0.95\linewidth]
+            {example-image-b} % File path to graphics
+            \subcaption{\label{fig:e}}
+        \end{subfigure}% `%' indicates no space between figures
+        \begin{subfigure}[b]{0.5\textwidth}
+            \centering
+            \includegraphics[width=0.95\linewidth]
+            {example-image-c} % File path to graphics
+            \subcaption{\label{fig:f}}
+        \end{subfigure}
+        \caption{Three figures, one on the top and two side-by-side with gaps
+        between figures.  \ldots \subref{fig:d} \ldots \subref{fig:e} \ldots
+        \subref{fig:f} \ldots \lipsum[75]}
+        \label{fig:Figure_2}
+    \end{figure}
+    \clearpage}
+    %--------------------------------%
+    
+    \lipsum[1-4]
+    
+    The \hologo{LaTeX} code used to create \cref{fig:Figure_2} is in
+    \cref{code:Figure_2}.  
+    
+    \codeFromFile{LaTeX}
+        {./Chapter2/code/LaTeX/Figure2.tex}
+        {\ldots \hologo{LaTeX} to display a figure with one image above and two side-by-side images.}
+        {Figure_2}
+        {\footnotesize}
+        {latexcodebg}
+        {default}
+
+\subsection{SubSection}\label{ss:Subsection3}
+    \lipsum[1-2]
+
+\subsubsection{SubSubSection}\label{sss:sss3}
+    \lipsum[1-2]
+    
+\paragraph{Paragraph1}\label{p:paragraph_1}
+    \lipsum[6-7] \cref{fig:Figure_3} 
+    
+    %--------------------------------%
+    \afterpage{
+    \begin{figure}[p]
+        \centering
+        \begin{subfigure}[b]{0.5\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]
+            {example-image-a}
+            \subcaption{\label{fig:g}}
+        \end{subfigure}%
+        \begin{subfigure}[b]{0.5\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]
+            {example-image-b}
+            \subcaption{\label{fig:h}}
+        \end{subfigure}%
+        \caption{Two figures side-by-side.  \ldots \subref{fig:g} \ldots
+        \subref{fig:h} \ldots \lipsum[75]} 
+        \label{fig:Figure_3}
+    \end{figure}
+    \clearpage}
+    %--------------------------------%
+    
+    The \hologo{LaTeX} code used to create \cref{fig:Figure_3} is in
+    \cref{code:Figure_3}.  
+    
+    \codeFromFile{LaTeX}
+        {./Chapter2/code/LaTeX/Figure3.tex}
+        {\ldots \hologo{LaTeX} to display a figure with two side-by-side images.}
+        {Figure_3}
+        {\footnotesize}
+        {latexcodebg}
+        {default}
+    
+    \lipsum[6-7]
+    
+\paragraph{Paragraph2}\label{par:Paragraph2}
+    \lipsum[8-10] \cref{fig:Figure_4} 
+    
+    %--------------------------------%
+    \afterpage{
+    \begin{figure}[p]
+        \centering
+        \includegraphics[width=1.0\textwidth]
+        {example-image-a}
+        \caption{Single image \ldots \lipsum[75]} 
+        \label{fig:Figure_4}
+    \end{figure}
+    \clearpage}
+    %--------------------------------%
+    
+    The \hologo{LaTeX} code used to create \cref{fig:Figure_4} is in
+    \cref{code:Figure_4}.  
+    
+    \codeFromFile{LaTeX}
+        {./Chapter2/code/LaTeX/Figure4.tex}
+        {\ldots \hologo{LaTeX} to display a figure of a single image.}
+        {Figure_4}
+        {\footnotesize}
+        {latexcodebg}
+        {default}
+    
+    \lipsum[8-10] \lipsum[66] \cref{fig:Figure_5} \lipsum[66]
+    
+    %--------------------------------%
+    \afterpage{
+    \begin{figure}[p]
+        \centering
+        \includegraphics[width=1.0\textwidth]
+        {example-image-16x10}
+        \caption{Single image \ldots \lipsum[75]} 
+        \label{fig:Figure_5}
+    \end{figure}
+    \clearpage}
+    %--------------------------------%
+    
+    \lipsum[75]
+
+\subsection{SubSection}\label{ss:Subsection4}
+    \lipsum[10-12]
+
+\end{document}

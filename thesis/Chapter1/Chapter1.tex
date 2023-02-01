@@ -1,0 +1,27 @@
+%%% -*-LaTeX-*-
+\documentclass[../Dissertation]{subfiles}
+
+\doublespacing
+\graphicspath{{Chapter1/Media/}{Media/}} % Graphics path for images
+
+\begin{document}
+
+    % Needs to be capitalized (University Rules) and title width is no longer
+    % than 4.5 inches.  Specify custom line breaks using "\protect\\" for both
+    % the Chapter title page and the table of contents page
+    \chapter{\uppercase{Introduction}}\label{chp:1}
+    
+    % If there is no text between the chapter and the first section, then we 
+    % need to reduce the spacing with a negative skip.  Otherwise, comment out
+    % the following line
+    \vspace{-2ex}
+
+    \subfile{\subfix{Chapter1/0_Overview}}
+    \subfile{\subfix{Chapter1/1_Background}}
+    \subfile{\subfix{Chapter1/2_Aims}}
+    \subfile{\subfix{Chapter1/3_Impact}}
+
+    % bibliography
+    \printbibliography[segment=\therefsegment,heading=references]
+
+\end{document}

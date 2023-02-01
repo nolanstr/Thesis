@@ -1,0 +1,5 @@
+# Compile:
+gfortran -o HW3-Problem_2 HW3-Problem_2.f
+
+# Execute:
+./HW3-Problem_2

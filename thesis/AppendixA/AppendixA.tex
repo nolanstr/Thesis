@@ -1,0 +1,127 @@
+%%% -*-LaTeX-*-
+\documentclass[../Dissertation]{subfiles}
+
+\doublespacing
+
+\begin{document}
+
+\chapter{Code Script Examples}\label{AppendixA}
+    
+    % If there is no text between the chapter and the first section, then we 
+    % need to reduce the spacing with a negative skip.  Otherwise, comment out
+    % the following line
+    \vspace{-0.5\UofUDoubleSpace}
+    
+\section{Example Cross product codes}
+    Find cross products using
+    \cref{code:ex1,code:ex2,code:ex3,code:ex4}.  
+    
+\subsection{\texttt{c}}
+    \codeFromFile{c}
+    {\subfix{code/c/HW3-4_58.c}}
+    {\ldots \texttt{c} to solve cross products.}
+    {ex1}
+    {\footnotesize}
+    {ccodebg}
+    {default}
+
+\subsection{\texttt{Fortran}}
+    \codeFromFile{fortran}
+    {\subfix{code/fortran/HW3-Problem_2.f}}
+    {\ldots \texttt{Fortran} to solve cross products.}
+    {ex2}
+    {\footnotesize}
+    {fortrancodebg}
+    {default}
+
+\subsection{\texttt{Matlab}}
+    \codeFromFile{matlab}
+    {\subfix{code/matlab/HW3-2_cross_product.m}}
+    {\ldots \texttt{Matlab} to solve cross products.}
+    {ex3}
+    {\footnotesize}
+    {matlabcodebg}
+    {default}
+
+\subsection{\texttt{Python}}
+    \codeFromFile{python}
+    {\subfix{code/python/HW3-2_cross_Product.py}}
+    {\ldots \texttt{Python} to solve cross products.}
+    {ex4}
+    {\footnotesize}
+    {pythoncodebg}
+    {default}
+
+\section{Additional Example codes}
+
+\subsection{\texttt{Matlab}}
+    \codeFromFile{matlab}
+    {\subfix{code/matlab/HW3-problem_1.m}}
+    {\ldots \texttt{Matlab} to solve a problem.}
+    {HW3-problem_1}
+    {\footnotesize}
+    {matlabcodebg}
+    {default}
+    
+\section{Code Highlighting Using
+\href{https://ctan.org/pkg/minted?lang=en}{\texttt{minted}}}
+\subsection{Highlighting Function}
+    To use the code highlighting function that renders scripts for publication
+    with line numbers/language specification/file path and more, please see the
+    following function:
+    
+    {\singlespacing
+    \begin{minted}{LaTeX}
+    % The "\codeFromFile" function is used in the following manner:
+    \codeFromFile
+        {language}        % Programming language
+        {\subfix{path}}   % File path
+        {Header}          % Script heading info
+        {label}           % LaTeX label for cross referencing
+        {fontsize}        % Fontsize
+        {backgroundcolor} % Text background color
+        {mintedStyle}     % Minted text style (default)
+    \end{minted}
+    }
+
+\subsection{Code Highlighting Example}
+    Here is the text to display the code used to highlight \hologo{LaTeX} code in
+    \cref{code:exampleCode}.
+    
+    {\singlespacing
+    \begin{minted}{LaTeX}
+    \section{Scripting language to call scripts}
+    \subsection{\texttt{\hologo{LaTeX}}}
+        \codeFromFile{LaTeX}
+        {\subfix{code/LaTeX/exampleCode.tex}}
+        {\ldots \hologo{LaTeX} to call other scripts.}
+        {exampleCode}
+        {\footnotesize}
+        {latexcodebg}
+        {default}
+    \end{minted}
+    }
+    
+    \begin{itemize}
+        \item Lines \texttt{1-8} in \cref{code:exampleCode} refer to
+            \cref{code:ex1}
+        \item Lines \texttt{10-17} in \cref{code:exampleCode} refer to
+            \cref{code:ex2}
+        \item Lines \texttt{19-26} in \cref{code:exampleCode} refer to
+            \cref{code:ex3}
+        \item Lines \texttt{28-35} in \cref{code:exampleCode} refer to
+            \cref{code:ex4}
+    \end{itemize}
+
+
+\subsection{\texttt{\hologo{LaTeX}} Script}
+    \codeFromFile{LaTeX}
+    {\subfix{code/LaTeX/exampleCode.tex}}
+    {\ldots \hologo{LaTeX} to call other scripts using the
+    \texttt{codeFromFile} function.} % \mintinline{LaTeX}{\codeFromFile}
+    {exampleCode}
+    {\footnotesize}
+    {latexcodebg}
+    {default}
+
+\end{document}

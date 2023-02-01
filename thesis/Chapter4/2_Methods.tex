@@ -1,0 +1,128 @@
+%%% -*-LaTeX-*-
+\documentclass[../Dissertation]{subfiles}
+
+\doublespacing
+\graphicspath{{Chapter4/Media/}{Media/}} % Graphics path for images
+
+\begin{document}
+
+\section{Methods}\label{sed:4_methods}
+
+\vspace{-1ex} % Space between section & subsection with no text
+
+\subsection{Subsection}
+    \lipsum[64]
+    \cite{Balazs_1982, Sebag_1998, Ponsioen_2010}.  
+    
+    \lipsum[64-65] \cref{fig:4_1_a,fig:4_1_b,fig:4_1_c}
+    
+    %--------------------------------%
+    \afterpage{
+    \begin{figure}[tbp]
+        \centering
+        \begin{subfigure}[b]{0.33\textwidth}
+            \centering
+            \includegraphics[width=0.98\linewidth]
+            {example-image-a}
+            \subcaption{\label{fig:4_1_a}}
+        \end{subfigure}%
+        \begin{subfigure}[b]{0.33\textwidth}
+            \centering
+            \includegraphics[width=0.98\linewidth]
+            {example-image-a}
+            \subcaption{\label{fig:4_1_b}}
+        \end{subfigure}%
+        \begin{subfigure}[b]{0.33\textwidth}
+            \centering
+            \includegraphics[width=0.98\linewidth]
+            {example-image-a}
+            \subcaption{\label{fig:4_1_c}}
+        \end{subfigure}%
+        \caption{\lipsum[64] \ldots \subref{fig:4_1_a} \ldots
+        \subref{fig:4_1_b} \ldots \subref{fig:4_1_c}
+        \ldots}
+        \label{fig:4_1}
+    \end{figure}
+    \clearpage}
+    %--------------------------------%
+    
+    \lipsum[64-65] \cref{fig:4_1_a,fig:4_1_c}
+
+\subsection{Subsection}\label{subsec:4_1}
+    \lipsum[64-65] \cref{fig:4_2_a,fig:4_2_b,fig:4_2_c}
+    
+    %--------------------------------%
+    \afterpage{
+    \begin{figure}[tbp]
+        \centering
+        \begin{subfigure}[b]{1.0\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]
+            {example-image-a}
+            \subcaption{\label{fig:4_2_a}}
+        \end{subfigure} \\[1ex]
+        \begin{subfigure}[b]{0.5\textwidth}
+            \centering
+            \includegraphics[width=0.98\linewidth]
+            {example-image-a}
+            \subcaption{\label{fig:4_2_b}}
+        \end{subfigure}%
+        \begin{subfigure}[b]{0.5\textwidth}
+            \centering
+            \includegraphics[width=0.98\linewidth]
+            {example-image-a}
+            \subcaption{\label{fig:4_2_c}}
+        \end{subfigure}
+        \caption{\lipsum[64]
+        \subref{fig:4_2_a} \ldots  \subref{fig:4_2_b} \ldots
+        \subref{fig:4_2_c} \ldots }
+        \label{fig:4_2}
+    \end{figure}
+    \clearpage}
+    %--------------------------------%
+    
+    \lipsum[64-69]
+    
+\subsubsection{Chemistry Formulations}
+    For chemistry formulas use the following \hologo{LaTeX} commands from the
+    \href{https://www.ctan.org/pkg/chemfig}{\texttt{chemfig}} package:
+    
+    An example is seen here:  \newline
+    \mintinline{LaTeX}{\chemfig{OsO_4} (4\% in \emph{d}\chemfig{H_2O})} 
+    $\longrightarrow$ \chemfig{OsO_4} (4\% in \emph{d}\chemfig{H_2O}) 
+
+\subsection{Subsection}
+    \lipsum[64] (\cref{fig:4_3_a}) \ldots \cite{ASTM_D6862_11}.  
+    
+    %--------------------------------%
+    \afterpage{
+    \begin{figure}[tbp]
+        \centering
+        \begin{subfigure}[b]{0.5\textwidth}
+            \centering
+            \includegraphics[width=0.98\linewidth]
+            {example-image-a}
+            \subcaption{\label{fig:4_3_a}}
+        \end{subfigure}%
+        \begin{subfigure}[b]{0.5\textwidth}
+            \centering
+            \includegraphics[width=0.98\linewidth]
+            {example-image-a}
+            \subcaption{\label{fig:4_3_b}}
+        \end{subfigure}%
+        \caption{\lipsum[64] \subref{fig:4_3_a} \ldots
+        \subref{fig:4_3_b} \ldots} 
+        \label{fig:4_3}
+    \end{figure}
+    \clearpage}
+    %--------------------------------%
+    
+    \lipsum[64] (\cref{fig:4_3_b}).  
+    
+    \lipsum[64-69]
+    
+
+\subsection{Subsection}
+    \lipsum[1-4] \cref{subsec:4_1} \lipsum[64]
+
+\end{document}

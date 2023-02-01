@@ -1,0 +1,69 @@
+%%% -*-LaTeX-*-
+\documentclass[../Dissertation]{subfiles}
+
+\doublespacing
+
+\begin{document}
+
+\chapter{Tissue Processing}\label{AppendixC}
+    
+    % Space used to make space between chapter title and section header the
+    % correct spacing
+    \vspace{-0.5\baselineskip}
+    
+    \includepdf[
+    pages={1},
+    pagecommand={\section{Electron Microscopy Preparation}\subsection{Tissue Processing}},
+    scale=0.8]
+    {\subfix{procedures/TissueProcessing/Release/TissueProcessing}}
+    
+    % Because the page created new subsections for each page
+    \includepdf[pages={2-},
+    pagecommand={},
+    scale=0.8]
+    {\subfix{procedures/TissueProcessing/Release/TissueProcessing}}
+    
+    \includepdf[pages={1},
+    pagecommand={\subsection{Tissue Processing}},
+    scale=0.8]
+    {\subfix{procedures/ResinPrep/Release/ResinPreparation}}
+    
+    % Because the page created new subsections for each page
+    \includepdf[
+    pages={2-},
+    pagecommand={},
+    scale=0.8]
+    {\subfix{procedures/ResinPrep/Release/ResinPreparation}}
+    
+% \section{MatLab Least Squares}
+    % \codeFromFile{matlab}
+    % {\subfix{Matlab/Least_Squares.m}}
+    % {Matlab script that performs a least squares regression calculation.}
+    % {leastSquares}{\footnotesize}{matlabcodebg}{default}
+    
+\section{Ridge Detection Input Parameters}
+    \codeFromFile{matlab}
+    {\subfix{Matlab/Sigma_Selector.m}}
+    {Matlab script that determine ridge detection parameters using TEM images.}
+    {ridgeDetectionParams}{\footnotesize}{matlabcodebg}{default}
+    
+\section{Analyze Ridge Detection Output}
+    \codeFromFile{matlab}
+    {\subfix{Matlab/RidgeDetectionAnalysis.m}}
+    {Matlab script that analyzes ridge detection output from TEM images.}
+    {ridgeDetectionAnalysis}{\footnotesize}{matlabcodebg}{default}
+    
+\section{Human Data Analysis}
+    \codeFromFile{python}
+    {\subfix{Python/HumanDataStatisticsPaper2.py}}
+    {Python script analyzes human data, performs statistics, and creates
+    figures.}
+    {humanTEMDataAnalysis}{\footnotesize}{pythoncodebg}{default}
+    
+\section{Additional Scripts}
+    Additional scripts used for analysis:
+\href{http://gitlab.com/SkiEngineer/phd_dissertation_code/-/tree/master/AppendixB}
+    {\texttt{https://gitlab.com/SkiEngineer/\linebreak
+    phd\_dissertation\_code/-/tree/master/AppendixC}}.
+    
+\end{document}

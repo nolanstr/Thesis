@@ -1,0 +1,86 @@
+%%% ====================================================================
+%%% Custom code highlighting using Minted and tikz
+%%% ====================================================================
+
+\usepackage{tikz}
+
+%%% ====================================================================
+%%% Specific colors used for code highlighting
+%%% ====================================================================
+
+\definecolor{matlabcodebg}{rgb}{0.99,0.99,1}
+\definecolor{pythoncodebg}{rgb}{0.99,1,0.99}
+\definecolor{ccodebg}{rgb}{1,0.99,0.99}
+\definecolor{fortrancodebg}{rgb}{1,1,0.99}
+\definecolor{latexcodebg}{HTML}{FFFBF1}
+
+%\usepackage{minted} % Already charged with tcblibrary minted
+
+\usepackage{tcolorbox}
+\tcbuselibrary{minted,skins,breakable,hooks}
+
+%%% ====================================================================
+%%% Custom code highlighting using Minted
+%%% ====================================================================
+
+\usepackage{fontawesome} % Additional features such as symbols
+\newcolumntype{\CeX}{>{\centering\let\newline\\\arraybackslash}X}%
+\newcommand{\TwoSymbolsAndText}[3]{%
+  \begin{tabularx}{\textwidth}{c\CeX c}%
+    #1 & #2 & #3
+  \end{tabularx}%
+}
+
+\newcounter{code} % Number input code files
+\crefname{code}{Script}{Scripts} % Used for referencing with \cref{code:...}
+
+% The "\codeFromFile" function is used in the following manner:
+% \codeFromFile
+% {language}
+% {\subfix{path}}
+% {Header}
+% {label}
+% {fontsize}
+% {backgroundcolor}
+% {mintedStyle}
+
+\newtcbinputlisting[use counter=code, number format=\arabic]{\codeFromFile}[7]{%
+    listing engine=minted, 
+    minted language=#1, 
+    minted style={#7}, 
+    listing file={#2}, 
+    minted options={
+        fontsize=#5, 
+        fontfamily=cmtt,  % default
+        fontseries=m, % default
+        fontshape=n, % default
+        linenos=True, 
+        xleftmargin=3.25mm, 
+        numbersep=2mm, 
+        stepnumber=1, 
+        numberblanklines=True, 
+        breaklines=true, 
+        },% <-- put other minted options inside the brackets
+    overlay={%
+        \begin{tcbclipinterior}
+            \fill[gray!25] (frame.south west) rectangle ([xshift=5mm]frame.north west);
+        \end{tcbclipinterior}
+        },
+    colback=#6, 
+    colframe=black!70, 
+    coltitle=white, 
+    coltext=black, 
+    before skip= \UofUHeadSpace, 
+    after skip= \UofUHeadSpace, 
+    code={\singlespacing}, 
+    breakable, % Allows for code to continue on multiple pages
+    listing only, 
+    arc=1.5mm, % Curvature of line corner
+    enhanced jigsaw, % ,
+    boxrule=0.5mm, % Border width
+    size=title,
+    title=\TwoSymbolsAndText{\faCode}{%
+    \textbf{Script \thetcbcounter}\ifthenelse{\equal{#3}{}}{}{\textbf{:} \textit{#3}}%
+    }{\faCode}, % Name of each program heading box.  
+    label=code:#4 % Label used to refer to code
+}

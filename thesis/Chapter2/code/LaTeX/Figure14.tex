@@ -1,0 +1,57 @@
+%--------------------------------%
+\afterpage{
+\begin{figure}[p]
+    \centering
+    \begin{subfigure}[b]{0.33\textwidth}
+        % A
+        \centering
+        \includegraphics[width=.95\linewidth]
+        {example-image-a} % File path to graphics
+        \subcaption{\label{fig:A}}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.33\textwidth}
+        % B
+        \centering
+        \includegraphics[width=.95\linewidth]
+        {example-image-b} % File path to graphics
+        \subcaption{\label{fig:B}}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.33\textwidth}
+        % C
+        \centering
+        \includegraphics[width=.95\linewidth]
+        {example-image-c} % File path to graphics
+        \subcaption{\label{fig:C}}
+    \end{subfigure}% \\
+    
+    \begin{subfigure}[b]{0.33\textwidth}
+        % D
+        \centering
+        \includegraphics[width=.95\linewidth]
+        {example-image-a} % File path to graphics
+        \subcaption{\label{fig:D}}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.33\textwidth}
+        % E
+        \centering
+        \includegraphics[width=.95\linewidth]
+        {example-image-b} % File path to graphics
+        \subcaption{\label{fig:E}}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.33\textwidth}
+        % F
+        \centering
+        \includegraphics[width=.95\linewidth]
+        {example-image-c} % File path to graphics
+        \subcaption{\label{fig:F}}
+    \end{subfigure}%
+    \caption{This image contains six subfigures.  \ldots
+    (\subref{fig:A}-\subref{fig:C}) \ldots \subref{fig:A}.  \dots
+    \subref{fig:B}, \ldots \subref{fig:C}.  \ldots.  \ldots
+    (\subref{fig:D}-\subref{fig:F}), \dots \subref{fig:D}, \ldots
+    \subref{fig:E}.  \ldots \subref{fig:F}.  Example image \ldots
+    \lipsum[75]}
+    \label{fig:ABCDEF}
+\end{figure}
+\clearpage}
+%--------------------------------%

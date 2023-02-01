@@ -1,0 +1,29 @@
+%%% -*-LaTeX-*-
+\documentclass[../Dissertation]{subfiles}
+
+\doublespacing
+\graphicspath{{Chapter5/Media/}{Media/}} % Graphics path for images
+
+\begin{document}
+
+    % Needs to be capitalized (University Rules) and title width is no longer
+    % than 4.5 inches.  Specify custom line breaks using "\protect\\" for both
+    % the Chapter title page and the table of contents page
+    \chapter{\uppercase{Conclusions and future work}}\label{chp:5}
+     
+    % If there is no text between the chapter and the first section, then we 
+    % need to reduce the spacing with a negative skip.  Otherwise, comment out
+    % the following line
+    \vspace{-2ex}
+    
+    \subfile{\subfix{Chapter5/0_Summary_of_key_findings}}
+    \subfile{\subfix{Chapter5/1_Chapter2_summary}}
+    \subfile{\subfix{Chapter5/2_Chapter3_summary}}
+    \subfile{\subfix{Chapter5/3_Chapter4_summary}}
+    \subfile{\subfix{Chapter5/4_Conclusion}}
+    \subfile{\subfix{Chapter5/5_Future_Work}}
+
+    % bibliography
+    \printbibliography[segment=\therefsegment,heading=references]
+
+\end{document}

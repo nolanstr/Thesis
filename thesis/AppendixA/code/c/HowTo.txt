@@ -1,0 +1,5 @@
+# compile:
+gcc -o HW3-4_58 HW3-4_58.c -lm
+
+# execute script:
+./HW3-4_58
